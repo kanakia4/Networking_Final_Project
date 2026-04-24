@@ -34,6 +34,9 @@ server_port = 5050
 client_socket=socket(AF_INET, SOCK_STREAM)
 client_socket.connect((server_IP, server_port))
 
+username = input("Enter your username: ")
+client_socket.send(username.encode())
+
 # Create and start the thread
 t1 = RecieveFromServer(client_socket)
 t1.start()
@@ -41,6 +44,9 @@ t1.start()
 while True:
     try:
         message = input("Enter your message: ")
+
+        if not message.strip():  # ← add this
+            continue
 
         if message.startswith("/sendimage"):
 
@@ -57,7 +63,7 @@ while True:
             send_text(client_socket, message)
 
         print("\n")
-        client_socket.send(message.encode())
+        # client_socket.send(message.encode())
 
     except:
         print("Error: Connection lost")
