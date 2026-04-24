@@ -68,13 +68,8 @@ class RecieveFromClient(threading.Thread):
                 break
         self.socket.close()
 
-#EVENTUALLY USE THIS TO GET SERVER
-# if (len(sys.argv) < 2):
-#   print("Usage: python3 " + sys.argv[0] + " relay_port")
-#   sys.exit(1)
-# assert(len(sys.argv) == 2)
 
-server_IP = "127.0.0.1" #int(sys.argv[1])
+server_IP = "0.0.0.0" 
 server_port = 5050
 
 server_socket = socket(AF_INET, SOCK_STREAM)

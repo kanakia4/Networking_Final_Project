@@ -23,13 +23,16 @@ class RecieveFromServer(threading.Thread):
                 break
 
 #EVENTUALLY USE THIS TO GET SERVER
-# if (len(sys.argv) < 2):
-#   print("Usage: python3 " + sys.argv[0] + " relay_port")
-#   sys.exit(1)
-# assert(len(sys.argv) == 2)
+# if (len(sys.argv) == 3:
+#   server_IP = sys.argv[1]
+#   server_port = int(sys.argv[2])
+# else:
+#    server_IP = input("Enter server IP: ")
+#    server_port = int(input("Enter server port (default 5050): ") or "5050")
+
 
 server_IP= "127.0.0.1" #int(sys.argv[1])
-server_port = 5050
+server_port = 5050 #int(sys.argv[2])
 
 client_socket=socket(AF_INET, SOCK_STREAM)
 client_socket.connect((server_IP, server_port))
